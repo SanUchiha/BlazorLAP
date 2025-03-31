@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Fork\\BlazorLAP\\BlazorLAP\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorLAP.bundle.scp.css",
+      "PackagePath": "staticwebassets\\BlazorLAP.2mwpjhxxwy.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Fork\\BlazorLAP\\BlazorLAP\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Fork\\BlazorLAP\\BlazorLAP\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Fork\\BlazorLAP\\BlazorLAP\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Fork\\BlazorLAP\\BlazorLAP\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BlazorLAP.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BlazorLAP.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.BlazorLAP.props",
+      "PackagePath": "build\\BlazorLAP.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.BlazorLAP.props",
+      "PackagePath": "buildMultiTargeting\\BlazorLAP.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.BlazorLAP.props",
+      "PackagePath": "buildTransitive\\BlazorLAP.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
