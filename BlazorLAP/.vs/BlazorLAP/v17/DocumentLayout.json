@@ -1,7 +1,28 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Fork\\BlazorLAP\\BlazorLAP\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F815E2F6-C255-4B59-8DF0-46D5DBD96292}|BlazorLAP.csproj|c:\\fork\\blazorlap\\blazorlap\\components\\pages\\participantes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F815E2F6-C255-4B59-8DF0-46D5DBD96292}|BlazorLAP.csproj|solutionrelative:components\\pages\\participantes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F815E2F6-C255-4B59-8DF0-46D5DBD96292}|BlazorLAP.csproj|c:\\fork\\blazorlap\\blazorlap\\components\\pages\\verparticipante.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F815E2F6-C255-4B59-8DF0-46D5DBD96292}|BlazorLAP.csproj|solutionrelative:components\\pages\\verparticipante.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F815E2F6-C255-4B59-8DF0-46D5DBD96292}|BlazorLAP.csproj|c:\\fork\\blazorlap\\blazorlap\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F815E2F6-C255-4B59-8DF0-46D5DBD96292}|BlazorLAP.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F815E2F6-C255-4B59-8DF0-46D5DBD96292}|BlazorLAP.csproj|c:\\fork\\blazorlap\\blazorlap\\components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F815E2F6-C255-4B59-8DF0-46D5DBD96292}|BlazorLAP.csproj|solutionrelative:components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F815E2F6-C255-4B59-8DF0-46D5DBD96292}|BlazorLAP.csproj|c:\\fork\\blazorlap\\blazorlap\\components\\pages\\counter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F815E2F6-C255-4B59-8DF0-46D5DBD96292}|BlazorLAP.csproj|solutionrelative:components\\pages\\counter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,6 +47,71 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VerParticipante.razor",
+              "DocumentMoniker": "C:\\Fork\\BlazorLAP\\BlazorLAP\\Components\\Pages\\VerParticipante.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\VerParticipante.razor",
+              "ToolTip": "C:\\Fork\\BlazorLAP\\BlazorLAP\\Components\\Pages\\VerParticipante.razor",
+              "RelativeToolTip": "Components\\Pages\\VerParticipante.razor",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAmwAoAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-01T06:53:27.291Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Participantes.razor",
+              "DocumentMoniker": "C:\\Fork\\BlazorLAP\\BlazorLAP\\Components\\Pages\\Participantes.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Participantes.razor",
+              "ToolTip": "C:\\Fork\\BlazorLAP\\BlazorLAP\\Components\\Pages\\Participantes.razor",
+              "RelativeToolTip": "Components\\Pages\\Participantes.razor",
+              "ViewState": "AgIAABIAAAAAAAAAAAAmwCEAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-01T05:31:33.477Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Fork\\BlazorLAP\\BlazorLAP\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Fork\\BlazorLAP\\BlazorLAP\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T05:31:21.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Weather.razor",
+              "DocumentMoniker": "C:\\Fork\\BlazorLAP\\BlazorLAP\\Components\\Pages\\Weather.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Weather.razor",
+              "ToolTip": "C:\\Fork\\BlazorLAP\\BlazorLAP\\Components\\Pages\\Weather.razor",
+              "RelativeToolTip": "Components\\Pages\\Weather.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-01T05:30:32.013Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Counter.razor",
+              "DocumentMoniker": "C:\\Fork\\BlazorLAP\\BlazorLAP\\Components\\Pages\\Counter.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Counter.razor",
+              "ToolTip": "C:\\Fork\\BlazorLAP\\BlazorLAP\\Components\\Pages\\Counter.razor",
+              "RelativeToolTip": "Components\\Pages\\Counter.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-01T05:30:22.033Z",
+              "EditorCaption": ""
             }
           ]
         }

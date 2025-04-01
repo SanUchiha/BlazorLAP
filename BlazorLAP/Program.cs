@@ -1,27 +1,42 @@
 using BlazorLAP.Components;
+using BlazorLAP.Configurations;
+using BlazorLAP.Repositories;
+using Microsoft.EntityFrameworkCore;
 
-var builder = WebApplication.CreateBuilder(args);
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+ConfigurationManager configuration = builder.Configuration;
+IServiceCollection services = builder.Services;
+string? connection = configuration.GetConnectionString("LAPCloud");
 
-// Add services to the container.
-builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents();
+services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(connection));
 
-var app = builder.Build();
+services.AddRazorComponents().AddInteractiveServerComponents();
+services.AddScoped<IParticipanteRepository, ParticipanteRepository>();
+//services.AddScoped<ICampusRepository, ICampusRepository>();
+
+services.AddCors(options =>
+{
+    options.AddPolicy("CORS",
+        builder => builder
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
+
+WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
-
 app.UseStaticFiles();
 app.UseAntiforgery();
-
-app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode();
+app.UseCors("CORS");
+app.MapRazorComponents<App>().AddInteractiveServerRenderMode();
 
 app.Run();

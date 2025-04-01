@@ -1,0 +1,84 @@
+﻿@page "/detalle/{id}"
+@using BlazorLAP.Models
+@using BlazorLAP.Repositories
+@inject IParticipanteRepository ParticipantesRepository
+
+<PageTitle>Ver detalle Participante</PageTitle>
+
+@if (participante != null)
+{
+    <div class="container mt-4">
+        <h1 class="mb-4">Detalle de @participante.Nombre @participante.PrimerApellido</h1>
+
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"><strong>Datos personales</strong></h4>
+                <p><strong>Nombre:</strong> @participante.Nombre @participante.PrimerApellido @participante.SegundoApellido</p>
+                <p><strong>DNI:</strong> @participante.Dniparticipante</p>
+                <p><strong>Fecha de Nacimiento:</strong> @participante.FechaNacimiento.ToShortDateString()</p>
+                <p><strong>Dirección:</strong> @participante.DireccionParticipante</p>
+                <p><strong>Localidad:</strong> @participante.Localidad</p>
+                <p><strong>Código Postal:</strong> @participante.CodigoPostal</p>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-body">
+                <h4 class="card-title"><strong>Salud</strong></h4>
+                <p><strong>Lesiones:</strong> @(string.IsNullOrWhiteSpace(participante.Lesiones) ? "Si": "No")</p>
+                <p><strong>Descripción Lesiones:</strong> @(participante.DescripcionLesiones ?? "N/A")</p>
+                <p><strong>Toma Medicación:</strong> @(participante.TomaMedicacion ? "Sí" : "No")</p>
+                <p><strong>Descripción Medicación:</strong> @(participante.DescripcionMedicacion ?? "N/A")</p>
+                <p><strong>Alergias:</strong> @(participante.Alergias ? "Sí" : "No")</p>
+                <p><strong>Descripción Alergias:</strong> @(participante.DescripcionAlergias ?? "N/A")</p>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-body">
+                <h4 class="card-title"><strong>Información del Tutor</strong></h4>
+                <p><strong>Nombre Tutor:</strong> @participante.NombreTutor @participante.PrimerApellidoTutor @participante.SegundoApellidoTutor</p>
+                <p><strong>DNI Tutor:</strong> @participante.Dnitutor</p>
+                <p><strong>Teléfono Principal:</strong> @participante.TelefonoPrincipal</p>
+                <p><strong>Teléfono Secundario:</strong> @(participante.TelefonoSecundario ?? "N/A")</p>
+                <p><strong>Correo:</strong> @participante.CorreoParticipante</p>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-body">
+                <h4 class="card-title"><strong>Otros datos</strong></h4>
+                <p><strong>Permite Fotos:</strong> @(participante.PermiteFotos ? "Sí" : "No")</p>
+                <p><strong>Autorización:</strong> @(participante.Autorizacion ? "Sí" : "No")</p>
+                <p><strong>Talla de Camiseta:</strong> @(participante.TallaCamiseta ?? "N/A")</p>
+                <!-- <p><strong>Campus:</strong> @participante.IdCampusNavigation.Nombre</p> -->
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <p>Cargando información del participante...</p>
+}
+
+@code {
+    [Parameter] public required string Id { get; set; }
+    private Participante participante = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await CargarParticipante();
+    }
+
+    private async Task CargarParticipante()
+    {
+        try
+        {
+            participante = await ParticipantesRepository.ObtenerParticipantePorIdAsync(int.Parse(Id));
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Excepción: {ex.Message}");
+        }
+    }
+}

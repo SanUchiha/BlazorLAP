@@ -1,0 +1,178 @@
+﻿@page "/participantes"
+@using BlazorLAP.Configurations
+@using BlazorLAP.Models
+@using BlazorLAP.Repositories
+@inject ApplicationDbContext Context
+@inject IParticipanteRepository ParticipantesRepository
+
+<PageTitle>Gestión de Participantes</PageTitle>
+
+<div class="container mt-4">
+    <h1>Gestión de Participantes</h1>
+
+    <p class="mb-4">Número de inscritos: @participantesFiltrados.Count</p>
+
+    @if (participantes.Count <= 0 || campusDisponibles == null || campusDisponibles.Count <= 0)
+    {
+        <p><em>Cargando participantes...</em></p>
+    }
+    else
+    {
+        <div class="mb-4">
+            <label for="filtroCampus" class="form-label">Filtrar por Campus:</label>
+            <select id="filtroCampus" class="form-select" @bind="CampusSeleccionado">
+                <option value="">--Seleccione un Campus--</option>
+                @foreach (var campus in campusDisponibles)
+                {
+                    <option value="@campus">@campus</option>
+                }
+            </select>
+        </div>
+
+        <div class="mb-4">
+            <label for="filtroTalla" class="form-label">Filtrar por talla:</label>
+            <select id="filtroTalla" class="form-select" @bind="TallaSeleccionada">
+                <option value="">--Seleccione una talla--</option>
+                @foreach (var talla in tallasDisponibles)
+                {
+                    <option value="@talla">@talla</option>
+                }
+            </select>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Primer Apellido</th>
+                        <th>Segundo Apellido</th>
+                        <th>Fecha Nacimiento</th>
+                        <th>Talla Camiseta</th>
+                        <th>Campus</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var participante in participantesFiltrados)
+                    {
+                        <tr>
+                            <td>@participante.Nombre</td>
+                            <td>@participante.PrimerApellido</td>
+                            <td>@participante.SegundoApellido</td>
+                            <td>@(participante.FechaNacimiento.ToString("dd/MM/yyyy"))</td>
+                            <td>@participante.TallaCamiseta</td>
+                            <td>@participante.IdCampusNavigation?.Nombre</td>
+                            <td>
+                                <a href="/detalle/@participante.IdParticipante" class="btn btn-primary btn-sm">Ver detalle</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+}
+
+
+@code {
+    private List<Participante> participantes = [];
+    private List<Participante> participantesFiltrados = [];
+    private List<string> campusDisponibles = [];
+    private string campusSeleccionado = "Todos";
+    private string CampusSeleccionado
+    {
+        get => campusSeleccionado;
+        set
+        {
+            campusSeleccionado = value;
+            FiltrarParticipantes(); // Se ejecuta cada vez que cambia el valor
+        }
+    }
+
+    private List<string> tallasDisponibles = [];
+    private string tallaSeleccionada = "Todas";
+    private string TallaSeleccionada
+    {
+        get => tallaSeleccionada;
+        set
+        {
+            tallaSeleccionada = value;
+            FiltrarParticipantes(); // Se ejecuta cada vez que cambia el valor
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await CargarParticipantes();
+    }
+
+    private async Task CargarParticipantes()
+    {
+        try
+        {
+            participantes = await ParticipantesRepository.ObtenerTodosLosParticipantesAsync();
+            
+            campusDisponibles = participantes
+                .Select(p => p.IdCampusNavigation.Nombre)
+                .Distinct()
+                .Where(nombre => !string.IsNullOrEmpty(nombre))
+                .ToList();
+            campusDisponibles.Insert(0, "Todos");
+
+            tallasDisponibles = participantes
+                .Select(p => p.TallaCamiseta!)
+                .Distinct()
+                .ToList();
+
+            campusDisponibles.Insert(0, "Todos");
+            FiltrarParticipantes();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Excepción: {ex.Message}");
+        }
+    }
+
+    private void FiltrarParticipantes()
+    {
+        if (participantes.Count <= 0) return;
+
+        // Filtrar por campus
+        var participantesFiltradosTemp = campusSeleccionado == "Todos"
+            ? participantes
+            : participantes.Where(p => p.IdCampusNavigation?.Nombre == campusSeleccionado).ToList();
+
+        // Filtrar por talla
+        if (tallaSeleccionada != "Todas")
+        {
+            participantesFiltradosTemp = participantesFiltradosTemp
+                .Where(p => p.TallaCamiseta == tallaSeleccionada)
+                .ToList();
+        }
+
+        participantesFiltrados = participantesFiltradosTemp;
+    }
+
+    private async Task EditarParticipante(int id)
+    {
+        Console.WriteLine($"Editando participante con ID: {id}");
+        // Implementar lógica de edición
+    }
+
+    private async Task EliminarParticipante(int id)
+    {
+        Console.WriteLine($"eliminando participante con ID: {id}");
+        // try
+        // {
+        //     await ParticipantesRepository.EliminarParticipanteAsync(id);
+        //     await CargarParticipantes();
+        // }
+        // catch (Exception ex)
+        // {
+        //     Console.WriteLine($"Error al eliminar participante: {ex.Message}");
+        // }
+    }
+}
